@@ -56,15 +56,23 @@
 		8065437125DA9A16002CC6C1 /* Lesson13Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				8065437225DA9A16002CC6C1 /* AppDelegate.swift */,
-				8065437425DA9A16002CC6C1 /* SceneDelegate.swift */,
 				8065437625DA9A16002CC6C1 /* ViewController.swift */,
 				8065437825DA9A16002CC6C1 /* Main.storyboard */,
+				8065438A25DA9B6A002CC6C1 /* Sistem32 */,
+			);
+			path = Lesson13Protocol;
+			sourceTree = "<group>";
+		};
+		8065438A25DA9B6A002CC6C1 /* Sistem32 */ = {
+			isa = PBXGroup;
+			children = (
+				8065437225DA9A16002CC6C1 /* AppDelegate.swift */,
+				8065437425DA9A16002CC6C1 /* SceneDelegate.swift */,
 				8065437B25DA9A19002CC6C1 /* Assets.xcassets */,
 				8065437D25DA9A19002CC6C1 /* LaunchScreen.storyboard */,
 				8065438025DA9A19002CC6C1 /* Info.plist */,
 			);
-			path = Lesson13Protocol;
+			path = Sistem32;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +296,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 879U287R5Q;
-				INFOPLIST_FILE = Lesson13Protocol/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Lesson13Protocol/Sistem32/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +315,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 879U287R5Q;
-				INFOPLIST_FILE = Lesson13Protocol/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Lesson13Protocol/Sistem32/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
