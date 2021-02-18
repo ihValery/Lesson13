@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wCA-bX-E20">
-                                <rect key="frame" x="16" y="113" width="358" height="310"/>
+                                <rect key="frame" x="16" y="188" width="358" height="310"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSP-BM-qtc">
                                         <rect key="frame" x="0.0" y="0.0" width="358" height="150"/>
@@ -234,7 +234,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDo-gR-2Qr">
-                                <rect key="frame" x="25" y="448" width="340" height="40"/>
+                                <rect key="frame" x="25" y="523" width="340" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hyk-Wq-qYt"/>
@@ -254,7 +254,7 @@
                             <constraint firstItem="uDo-gR-2Qr" firstAttribute="top" secondItem="wCA-bX-E20" secondAttribute="bottom" constant="25" id="CzQ-MY-qOh"/>
                             <constraint firstItem="wCA-bX-E20" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DFr-fm-Dwj"/>
                             <constraint firstItem="wCA-bX-E20" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Mqi-xx-1DL"/>
-                            <constraint firstItem="wCA-bX-E20" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Tlq-As-mDU"/>
+                            <constraint firstItem="wCA-bX-E20" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Tlq-As-mDU"/>
                             <constraint firstItem="uDo-gR-2Qr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="ZTv-5T-rt7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uDo-gR-2Qr" secondAttribute="trailing" constant="25" id="vE1-GX-nC6"/>
                         </constraints>
