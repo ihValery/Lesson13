@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  RGBColor
-//
-//  Created by Валерий Игнатьев on 01.02.2021.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -18,26 +11,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
+    @IBOutlet weak var alphaSlider: UISlider!
+    
+    @IBOutlet weak var setButton: UIButton!
     
     @IBOutlet weak var redTextField: UITextField!
     @IBOutlet weak var greenTextField: UITextField!
     @IBOutlet weak var blueTextField: UITextField!
     
-    var delegate: mySetColor?
+    weak var delegate: myChangeColorProtocol?
     var colorMainVC: UIColor!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setMyDesign()
-        setColor()                                                      //что бы сразу цвета и значения подгрузились
-        setValueForLabel()
-        setValueForTextField()
-        
-        addDoneButtonTo(redTextField)
-        addDoneButtonTo(greenTextField)
-        addDoneButtonTo(blueTextField)
     }
     
     @IBAction func rgbSliderAction(_ sender: UISlider) {
@@ -51,10 +39,12 @@ class ViewController: UIViewController {
         case 2:
             blueLabel.text = strRound(from: sender)
             blueTextField.text = strRound(from: sender)
+        case 3:
+            break
         default:
             break
         }
-        setColor()
+        setMainVCColor()
     }
     
     @IBAction func TextFieldAction(_ sender: UITextField) {
@@ -66,37 +56,61 @@ class ViewController: UIViewController {
     }
     
     @IBAction func setColorAction(_ sender: UIButton) {
+        
+        delegate?.updateColorView(color: colorMainVC)
+        settingSliderValuePreBackground()
         navigationController?.popViewController(animated: true)
     }
     
     func setMyDesign() {
-        colorView.layer.cornerRadius = 15                                   //закругление краев
+        colorView.layer.cornerRadius = 13                                  //закругление краев
+        colorView.layer.borderWidth = 1
+        
+        setButton.layer.cornerRadius = 13
+        setButton.layer.borderWidth = 1
         
         redSlider.tintColor = .red
         greenSlider.tintColor = .green
+        alphaSlider.tintColor = .lightGray
+        //alphaSlider.maximumTrackTintColor = .darkGray
 
-//        redSlider.value = 1
-//        greenSlider.value = 127
-//        blueSlider.value = 255
-    }
-
-    func setColor() {                                                  //установка цвета View
-        let newColorValue = UIColor(red: CGFloat(redSlider.value),
-                                    green: CGFloat(greenSlider.value),
-                                    blue: CGFloat(blueSlider.value),
-                                    alpha: 1)
+        colorView.backgroundColor = colorMainVC
+        settingSliderValuePreBackground()
         
-        colorView.backgroundColor = newColorValue
-        delegate?.setColor(color: newColorValue)
+        setMainVCColor()   //что бы сразу цвета и значения подгрузились
+        setBeautifulValueLabelAndTextfield()
+        
+        addDoneButtonTo(redTextField)
+        addDoneButtonTo(greenTextField)
+        addDoneButtonTo(blueTextField)
+    }
+    
+    //установка цвета в предпросмотр
+    func setMainVCColor() {
+        colorMainVC = UIColor(red: CGFloat(redSlider.value),
+                              green: CGFloat(greenSlider.value),
+                              blue: CGFloat(blueSlider.value),
+                              alpha: CGFloat(alphaSlider.value))
+        
+        colorView.backgroundColor = colorMainVC
+    }
+    
+    //Установка значениев Слайдера в соотвествии с предыдущим фоном
+    //Без не цвет передаеться "одним значением" и ставиться в зеленный
+    func settingSliderValuePreBackground() {
+        let ciColor = CIColor(color: colorMainVC)
+        
+        redSlider.value = Float(ciColor.red)
+        greenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
+        alphaSlider.value = Float(ciColor.alpha)
     }
 
-    func setValueForLabel() {                                               //установка значения для лейбла
+    //установка значения для лейбла и для текстового поля
+    func setBeautifulValueLabelAndTextfield() {
         redLabel.text = strRound(from: redSlider)
         greenLabel.text = strRound(from: greenSlider)
         blueLabel.text = strRound(from: blueSlider)
-    }
-
-    func setValueForTextField() {                                           //установка значения для текстового поля
         redTextField.text = strRound(from: redSlider)
         greenTextField.text = strRound(from: greenSlider)
         blueTextField.text = strRound(from: blueSlider)
@@ -104,7 +118,7 @@ class ViewController: UIViewController {
     
     //преоброзование в строку и сразу округление что бы не писать каждый раз
     func strRound(from slider: UISlider) -> String {
-        String(format: "%.2f", slider.value)
+        String(format: "%.0f", slider.value * 255)
     }
 }
 
@@ -134,8 +148,8 @@ extension ViewController: UITextFieldDelegate {
                 case 2: blueSlider.value = currentValue
                 default: break
                 }
-                setColor()
-                setValueForLabel()
+                setMainVCColor()
+                setBeautifulValueLabelAndTextfield()
             } else { showAllert(tittle: "Warning", message: "Попробуй от 0 до 255") }
         } else { showAllert(tittle: "Warning", message: "Только цифры!") }
     }
@@ -171,5 +185,3 @@ extension ViewController {
         present(alert, animated: true)
     }
 }
-
-

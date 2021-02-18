@@ -1,36 +1,35 @@
-//
-//  backgroundColorVC.swift
-//  RGBColor
-//
-//  Created by Валерий Игнатьев on 15.02.2021.
-//
-
 import UIKit
 
-protocol mySetColor {
-    func setColor(color: UIColor)
+protocol myChangeColorProtocol: class {
+    func updateColorView(color: UIColor)
 }
 
-class backgroundColorVC: UIViewController,mySetColor {
+class backgroundColorVC: UIViewController, myChangeColorProtocol {
  
+    @IBOutlet weak var myViewForBackgroundWhite: UIView!
+    @IBOutlet weak var getButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setMyDesign()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let colorVC = segue.destination as! ViewController
-        colorVC.colorMainVC = view.backgroundColor
+    @IBAction func getColorBttnAction(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewCintroller = storyboard.instantiateViewController(identifier: "ViewControllerSB") as? ViewController else { return }
+        viewCintroller.colorMainVC = myViewForBackgroundWhite.backgroundColor
+        //Назначить делегата
+        viewCintroller.delegate = self
+    
+        show(viewCintroller, sender: nil)
     }
     
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
-        let sourceVC = segue.source as! ViewController
-        sourceVC.delegate = self
-        sourceVC.setColor()
-        // Use data from the view controller which initiated the unwind segue
+    func setMyDesign() {
+        getButton.layer.cornerRadius = 13
+        getButton.layer.borderWidth = 1
     }
     
-    func setColor(color: UIColor) {
-        view.backgroundColor = color
+    func updateColorView(color: UIColor) {
+        myViewForBackgroundWhite.backgroundColor = color
     }
 }
