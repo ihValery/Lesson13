@@ -4,4 +4,6 @@
 - при нажатии на Доне перекидываем на перый контроллер новый цвет и меняем фон)
 - обновленный дизайн
 
+http://imglink.ru/show-image.php?id=907307c876bd58979e9347f23607692e
+
 <a href='http://imglink.ru/show-image.php?id=907307c876bd58979e9347f23607692e'> <img src='http://imglink.ru/thumbnails/19-02-21/31bb4bdcb9874eec222dc208c5d45956.jpg' alt='загрузить фото,загрузить картинку' border='0'> </a>
