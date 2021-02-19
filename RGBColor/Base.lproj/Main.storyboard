@@ -80,7 +80,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-DB-zoW">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-DB-zoW">
                                         <rect key="frame" x="0.0" y="160" width="358" height="150"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onn-DM-F7M" userLabel="Naming">
@@ -120,25 +120,25 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNQ-N6-wuh" customClass="DesignableSlider" customModule="RGBColor" customModuleProvider="target">
-                                                <rect key="frame" x="58" y="0.0" width="242" height="150"/>
+                                                <rect key="frame" x="61" y="0.0" width="236" height="150"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lep-3W-Kre">
-                                                        <rect key="frame" x="0.0" y="0.0" width="242" height="150"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="236" height="150"/>
                                                         <subviews>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-Yz-pgq" customClass="CustomSlider" customModule="RGBColor" customModuleProvider="target">
-                                                                <rect key="frame" x="-2" y="0.0" width="246" height="51"/>
+                                                                <rect key="frame" x="-2" y="0.0" width="240" height="51"/>
                                                                 <connections>
                                                                     <action selector="rgbSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="jaX-J9-16C"/>
                                                                 </connections>
                                                             </slider>
                                                             <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gjd-oa-bjS" customClass="CustomSlider" customModule="RGBColor" customModuleProvider="target">
-                                                                <rect key="frame" x="-2" y="50" width="246" height="51"/>
+                                                                <rect key="frame" x="-2" y="50" width="240" height="51"/>
                                                                 <connections>
                                                                     <action selector="rgbSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="aiD-d1-uMk"/>
                                                                 </connections>
                                                             </slider>
                                                             <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HXR-MW-AUe" customClass="CustomSlider" customModule="RGBColor" customModuleProvider="target">
-                                                                <rect key="frame" x="-2" y="100" width="246" height="51"/>
+                                                                <rect key="frame" x="-2" y="100" width="240" height="51"/>
                                                                 <connections>
                                                                     <action selector="rgbSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="2cD-61-Stb"/>
                                                                 </connections>
@@ -160,7 +160,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="q98-0l-fCY">
                                                         <rect key="frame" x="0.0" y="12" width="50" height="138"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWz-55-WU6">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWz-55-WU6" customClass="CustomTextField" customModule="RGBColor" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="40.666666666666664"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -169,7 +169,7 @@
                                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="1Ha-yR-uFb"/>
                                                                 </connections>
                                                             </textField>
-                                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-r0-pOA">
+                                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-r0-pOA" customClass="CustomTextField" customModule="RGBColor" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="48.666666666666686" width="50" height="40.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -178,7 +178,7 @@
                                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="BsX-3a-s66"/>
                                                                 </connections>
                                                             </textField>
-                                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bpu-hC-q7o">
+                                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bpu-hC-q7o" customClass="CustomTextField" customModule="RGBColor" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="97.333333333333314" width="50" height="40.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -229,16 +229,14 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="L7X-qr-gnW" customClass="CustomSlider" customModule="RGBColor" customModuleProvider="target">
-                                <rect key="frame" x="72" y="455" width="295" height="31"/>
+                                <rect key="frame" x="74.333333333333343" y="455" width="292.66666666666663" height="31"/>
                                 <connections>
                                     <action selector="rgbSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="91A-eZ-cJl"/>
+                                    <action selector="sliderValueDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="L4Z-gL-Jyg"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWW-0G-3ag" customClass="CustomLabel" customModule="RGBColor" customModuleProvider="target">
-                                <rect key="frame" x="16" y="467" width="50" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="saZ-Ks-hYd"/>
-                                </constraints>
+                                <rect key="frame" x="16.000000000000004" y="467" width="43.333333333333343" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -252,12 +250,12 @@
                             <constraint firstItem="yWW-0G-3ag" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="H9g-n6-Hpn"/>
                             <constraint firstItem="L7X-qr-gnW" firstAttribute="top" secondItem="vGX-DB-zoW" secondAttribute="bottom" constant="18" id="IVv-yG-Lym"/>
                             <constraint firstItem="wCA-bX-E20" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Mqi-xx-1DL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L7X-qr-gnW" secondAttribute="trailing" constant="25" id="To3-XO-unR"/>
                             <constraint firstItem="uDo-gR-2Qr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="ZTv-5T-rt7"/>
                             <constraint firstItem="yWW-0G-3ag" firstAttribute="top" secondItem="vGX-DB-zoW" secondAttribute="bottom" constant="30" id="gDr-3H-iE5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uDo-gR-2Qr" secondAttribute="bottom" constant="250" id="sRW-sP-RNk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uDo-gR-2Qr" secondAttribute="trailing" constant="25" id="vE1-GX-nC6"/>
-                            <constraint firstItem="L7X-qr-gnW" firstAttribute="leading" secondItem="yWW-0G-3ag" secondAttribute="trailing" constant="8" id="zaD-ld-6xm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L7X-qr-gnW" secondAttribute="trailing" constant="25" id="yW8-wu-1oz"/>
+                            <constraint firstItem="L7X-qr-gnW" firstAttribute="leading" secondItem="yWW-0G-3ag" secondAttribute="trailing" constant="17" id="zaD-ld-6xm"/>
                         </constraints>
                     </view>
                     <connections>

@@ -57,13 +57,8 @@ class ViewController: UIViewController {
         
         redSlider.tintColor = .red
         greenSlider.tintColor = .green
-        alphaSlider.tintColor = .lightGray
-        
-        
-        let myColor = UIColor.white
-        redTextField.layer.borderColor = myColor.cgColor
-        redTextField.layer.borderColor = myColor.cgColor
-        
+        alphaSlider.tintColor = .darkGray
+    
         colorView.backgroundColor = colorMainVC
         settingSliderValuePreBackground()
         
@@ -74,6 +69,21 @@ class ViewController: UIViewController {
         addDoneButtonTo(redTextField)
         addDoneButtonTo(greenTextField)
         addDoneButtonTo(blueTextField)
+    }
+    
+    //Игра с Альфо Слйдером смотриться посредственно
+    @IBAction func sliderValueDidChange(_ sender: UISlider) {
+        switch sender.value {
+            case 0...0.14: alphaSlider.minimumTrackTintColor = UIColor.systemGray6
+            case 0.141...0.28: alphaSlider.minimumTrackTintColor = UIColor.systemGray5
+            case 0.281...0.42: alphaSlider.minimumTrackTintColor = UIColor.systemGray4
+            case 0.421...0.56: alphaSlider.minimumTrackTintColor = UIColor.systemGray3
+            case 0.561...0.7: alphaSlider.minimumTrackTintColor = UIColor.systemGray2
+            case 0.701...0.84: alphaSlider.minimumTrackTintColor = UIColor.systemGray
+            case 0.841...1: alphaSlider.minimumTrackTintColor = UIColor.darkGray
+            default:
+                break
+        }
     }
     
     //установка цвета в предпросмотр
@@ -200,6 +210,15 @@ class CustomButton: UIButton {
 class CustomLabel: UILabel {
     override func awakeFromNib() {
         layer.cornerRadius = 13
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.4
+    }
+}
+
+//Кастомный для TextFielda
+class CustomTextField: UITextField {
+    override func awakeFromNib() {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
         layer.shadowOpacity = 0.4
