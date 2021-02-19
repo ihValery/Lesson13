@@ -5,4 +5,4 @@
 - обновленный дизайн
 - Кастомные классы (тзбавляемся от дублирования кода по максимум)
 
-[URL=http://imglink.ru] [IMG]http://imglink.ru/pictures/19-02-21/31bb4bdcb9874eec222dc208c5d45956.jpg[/IMG][/URL]
+<a href='http://imglink.ru'> <img src='http://imglink.ru/pictures/19-02-21/31bb4bdcb9874eec222dc208c5d45956.jpg' alt='Lesson 13'> </a>
