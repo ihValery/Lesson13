@@ -12,7 +12,7 @@
 		8024391D25C7FB9700E5D40C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8024391B25C7FB9700E5D40C /* Main.storyboard */; };
 		8024391F25C7FB9800E5D40C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8024391E25C7FB9800E5D40C /* Assets.xcassets */; };
 		8024392225C7FB9800E5D40C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8024392025C7FB9800E5D40C /* LaunchScreen.storyboard */; };
-		802664C225DAF8E900E7167E /* backgroundColorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802664C125DAF8E900E7167E /* backgroundColorVC.swift */; };
+		802664C225DAF8E900E7167E /* BackgroundColorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802664C125DAF8E900E7167E /* BackgroundColorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		8024391E25C7FB9800E5D40C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8024392125C7FB9800E5D40C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8024392325C7FB9800E5D40C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		802664C125DAF8E900E7167E /* backgroundColorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundColorVC.swift; sourceTree = "<group>"; };
+		802664C125DAF8E900E7167E /* BackgroundColorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 		8024391425C7FB9700E5D40C /* RGBColor */ = {
 			isa = PBXGroup;
 			children = (
-				802664C125DAF8E900E7167E /* backgroundColorVC.swift */,
+				802664C125DAF8E900E7167E /* BackgroundColorVC.swift */,
 				8024391925C7FB9700E5D40C /* ViewController.swift */,
 				8024391B25C7FB9700E5D40C /* Main.storyboard */,
 				802664BA25DAF78E00E7167E /* Sistem32 */,
@@ -146,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8024391A25C7FB9700E5D40C /* ViewController.swift in Sources */,
-				802664C225DAF8E900E7167E /* backgroundColorVC.swift in Sources */,
+				802664C225DAF8E900E7167E /* BackgroundColorVC.swift in Sources */,
 				8024391625C7FB9700E5D40C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +295,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 104;
+				CURRENT_PROJECT_VERSION = 604;
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				INFOPLIST_FILE = "$(SRCROOT)/RGBColor/Sistem32/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -303,7 +303,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.05;
+				MARKETING_VERSION = 2.68;
 				PRODUCT_BUNDLE_IDENTIFIER = lessonEightAlarm.RGBColor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -317,7 +317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 104;
+				CURRENT_PROJECT_VERSION = 604;
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				INFOPLIST_FILE = "$(SRCROOT)/RGBColor/Sistem32/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -325,7 +325,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.05;
+				MARKETING_VERSION = 2.68;
 				PRODUCT_BUNDLE_IDENTIFIER = lessonEightAlarm.RGBColor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

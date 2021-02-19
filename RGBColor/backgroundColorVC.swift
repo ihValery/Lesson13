@@ -1,34 +1,30 @@
 import UIKit
 
-protocol myChangeColorProtocol: class {
+protocol MyChangeColorProtocol: class {
     func updateColorView(color: UIColor)
 }
 
-class backgroundColorVC: UIViewController, myChangeColorProtocol {
+//UpperCamelCase не забываем!
+class BackgroundColorVC: UIViewController {
  
     @IBOutlet weak var myViewForBackgroundWhite: UIView!
     @IBOutlet weak var getButton: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setMyDesign()
-    }
     
     @IBAction func getColorBttnAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewCintroller = storyboard.instantiateViewController(identifier: "ViewControllerSB") as? ViewController else { return }
         viewCintroller.colorMainVC = myViewForBackgroundWhite.backgroundColor
-        //Назначить делегата
+        // (2) Назначить делегата
         viewCintroller.delegate = self
     
         show(viewCintroller, sender: nil)
     }
-    
-    func setMyDesign() {
-        getButton.layer.cornerRadius = 13
-        getButton.layer.borderWidth = 1
-    }
-    
+}
+
+// (1) Подписываем класс через расширение:
+//      Лучше выглядит (когда много протоколов)
+//      Сразу легко понять какие (3) методы обязательны ))
+extension BackgroundColorVC: MyChangeColorProtocol {
     func updateColorView(color: UIColor) {
         myViewForBackgroundWhite.backgroundColor = color
     }
