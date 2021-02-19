@@ -3,10 +3,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var colorView: UIView!
-    
-    @IBOutlet weak var redLabel: UILabel!
-    @IBOutlet weak var greenLabel: UILabel!
-    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var shadowView: UIView!
     
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
@@ -19,30 +16,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenTextField: UITextField!
     @IBOutlet weak var blueTextField: UITextField!
     
-    weak var delegate: myChangeColorProtocol?
+    // (4) Создаем слабую ссылку на протокол (Протокол должен быть AnyObject)
+    weak var delegate: MyChangeColorProtocol?
     var colorMainVC: UIColor!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setMyDesign()
     }
     
+    //Свитч для дергания слайдов (элегантно через tag - запоминаем работаем)
     @IBAction func rgbSliderAction(_ sender: UISlider) {
-        switch sender.tag {                                                //выделяем Slider -> Attributes inspector -> View -> Tag
-        case 0:
-            redLabel.text = strRound(from: sender)
-            redTextField.text = strRound(from: sender)
-        case 1:
-            greenLabel.text = strRound(from: sender)
-            greenTextField.text = strRound(from: sender)
-        case 2:
-            blueLabel.text = strRound(from: sender)
-            blueTextField.text = strRound(from: sender)
-        case 3:
-            break
-        default:
-            break
+        //выделяем Slider -> Attributes inspector -> View -> Tag
+        switch sender.tag {
+        case 0:     redTextField.text = strRound(from: sender)
+        case 1:     greenTextField.text = strRound(from: sender)
+        case 2:     blueTextField.text = strRound(from: sender)
+        default:    break
         }
         setMainVCColor()
     }
@@ -56,28 +46,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction func setColorAction(_ sender: UIButton) {
-        
+        // (5) Вызываем метод делегата
         delegate?.updateColorView(color: colorMainVC)
         settingSliderValuePreBackground()
         navigationController?.popViewController(animated: true)
     }
     
     func setMyDesign() {
-        colorView.layer.cornerRadius = 13                                  //закругление краев
-        colorView.layer.borderWidth = 1
-        
-        setButton.layer.cornerRadius = 13
-        setButton.layer.borderWidth = 1
+        colorView.layer.cornerRadius = 13
         
         redSlider.tintColor = .red
         greenSlider.tintColor = .green
         alphaSlider.tintColor = .lightGray
-        //alphaSlider.maximumTrackTintColor = .darkGray
-
+        
+        
+        let myColor = UIColor.white
+        redTextField.layer.borderColor = myColor.cgColor
+        redTextField.layer.borderColor = myColor.cgColor
+        
         colorView.backgroundColor = colorMainVC
         settingSliderValuePreBackground()
         
-        setMainVCColor()   //что бы сразу цвета и значения подгрузились
+        //что бы сразу цвета и значения подгрузились
+        setMainVCColor()
         setBeautifulValueLabelAndTextfield()
         
         addDoneButtonTo(redTextField)
@@ -108,9 +99,6 @@ class ViewController: UIViewController {
 
     //установка значения для лейбла и для текстового поля
     func setBeautifulValueLabelAndTextfield() {
-        redLabel.text = strRound(from: redSlider)
-        greenLabel.text = strRound(from: greenSlider)
-        blueLabel.text = strRound(from: blueSlider)
         redTextField.text = strRound(from: redSlider)
         greenTextField.text = strRound(from: greenSlider)
         blueTextField.text = strRound(from: blueSlider)
@@ -133,19 +121,18 @@ extension ViewController: UITextFieldDelegate {
     //скрывает клавиатуру по тапу за пределами TextField (без опционала не работает)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        view.endEditing(true)                                              //скрывает клавиатуру для любого объекта
+        //скрывает клавиатуру для любого объекта
+        view.endEditing(true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else {
-            return
-        }
+        guard let text = textField.text else { return }
         if let currentValue = Float(text) {
             if currentValue >= 0 && currentValue <= 255 {
                 switch textField.tag {                                        //тоже tag настраиваем
-                case 0: redSlider.value = currentValue
-                case 1: greenSlider.value = currentValue
-                case 2: blueSlider.value = currentValue
+                case 0: redSlider.value = currentValue / 255
+                case 1: greenSlider.value = currentValue / 255
+                case 2: blueSlider.value = currentValue / 255
                 default: break
                 }
                 setMainVCColor()
@@ -179,9 +166,52 @@ extension ViewController {
     }
     
     func showAllert(tittle: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         let okAction = UIAlertAction(title: "Понял понял", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+}
+
+//Кастомный класс для украшения слайдов )))
+class CustomSlider: UISlider {
+    override func awakeFromNib() {
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.4
+    }
+    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+        let point = CGPoint(x: bounds.minX, y: bounds.midY)
+        return CGRect(origin: point, size: CGSize(width: bounds.width, height: 13))
+    }
+}
+
+//Кастомный класс для кнопок (УЧИМСЯ НЕ ДУБЛИРОВАТЬ КОД)
+class CustomButton: UIButton {
+    override func awakeFromNib() {
+        layer.cornerRadius = 13
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.4
+    }
+}
+
+//Кастом для Label (Да бы был единный стиль, как сильно РАЗГРУЗИЛИ основной класс)
+class CustomLabel: UILabel {
+    override func awakeFromNib() {
+        layer.cornerRadius = 13
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.4
+    }
+}
+
+//Кастомный класс для превьюшки, а точнее ее подложки (красивая тень)
+class CustomView: UIView{
+    override func awakeFromNib() {
+        layer.cornerRadius = 13
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.4
     }
 }
